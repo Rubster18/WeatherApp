@@ -6,6 +6,21 @@ body{
     background-color: #293251;
 }
 
+.boxes {
+    padding: 15px 15px 15px 15px;
+    margin:  15px 15px 15px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.filters {
+    background-color: #6c92c0;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+    width: 300px;
+}
 .container{
     width: 300px;    
     background-color: #FFF;
@@ -15,6 +30,7 @@ body{
     
     border-radius: 10px;
     padding-bottom : 50px;
+
 }
 
 .app-title{

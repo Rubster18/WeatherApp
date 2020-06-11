@@ -1,5 +1,9 @@
+const cities = [];
+
 const kelvinTemp = 273;
 const apiKey = "bd231dae6e6543c08e48120bb7214b0c";
+//newapiKey ="0bc9ec7bb66a4bbda7e92c0aca433251";
+
 
 //selection of weather box items
 
@@ -33,6 +37,9 @@ function setPosition(position){
 
     getWeather(lat, lon);
 }
+cities.push({name: "Barcelona", latitude = lat, longitude = lon});
+/* cities.push({name: "Madrid", latitude:, longitude:,})
+cities.push({name: "Sevillla", latitude:, longitude:}) */
 
 //errors?
 
