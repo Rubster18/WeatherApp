@@ -1,9 +1,9 @@
-const cities = [];
 
 const kelvinTemp = 273;
-const apiKey = "bd231dae6e6543c08e48120bb7214b0c";
-//newapiKey ="0bc9ec7bb66a4bbda7e92c0aca433251";
+//const apiKey = "bd231dae6e6543c08e48120bb7214b0c";
+const apiKey ="0bc9ec7bb66a4bbda7e92c0aca433251";
 
+var userInputs = document.querySelector(".city").value;
 
 //selection of weather box items
 
@@ -21,13 +21,13 @@ weather.temperature = {
     unit: "celcius"
 }
 
-//user browser and/or denies
+/* //user browser and/or denies
 if ('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, errorFunction);
 }else{
     boxNoti.style.display ="block";
     boxNoti.innerHTML = "<p> Browser doesn't use geolocation</p>";
-}
+} */
 
 //position 
 
@@ -37,9 +37,6 @@ function setPosition(position){
 
     getWeather(lat, lon);
 }
-cities.push({name: "Barcelona", latitude = lat, longitude = lon});
-/* cities.push({name: "Madrid", latitude:, longitude:,})
-cities.push({name: "Sevillla", latitude:, longitude:}) */
 
 //errors?
 
@@ -51,8 +48,8 @@ function errorFunction(error){
 //use api for weather object
 
 function getWeather(lat, lon) {
-    let api =`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-  /*  console.log(api); */
+    let api ='http://api.openweathermap.org/data/2.5/weather?q=`${city}`&appid=379977dd9efc9c834bc08b24149ae8c1';
+  console.log(api);
   fetch(api)
     .then(function(response){
         let recieving = response.json();
