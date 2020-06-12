@@ -26,24 +26,25 @@ function errorFunction(error){
     boxNoti.style.display ="block";
     boxNoti.innerHTML = `<p> ${error.message}</p>`;
 }
+//get user input 
+
+
+var cityCheck = () => {
+     var city = document.querySelector(".city").value; 
+     alert(city);
+    }
 
 //use api for weather object
 
+
 function getWeather(city) {
     let api ="http://api.openweathermap.org/data/2.5/weather?q=";
-    var city = select(".city")
-
-    var button = select(".submit");
-    button.mousePressed(cityCheck);
-
-    cityCheck = () => {
         var completeURL = api + city.value() + apiKey; 
-    }
+    console.log(completeURL);
 
-  console.log(api);
-  fetch(api)
+  fetch(completeURL)
     .then(function(response){
-        let recieving = response.json();
+        let recieving = response.json();    
         return recieving; 
         console.log(recieving);
     })
