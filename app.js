@@ -1,9 +1,8 @@
 
 const kelvinTemp = 273;
 //const apiKey = "bd231dae6e6543c08e48120bb7214b0c";
-const apiKey ="0bc9ec7bb66a4bbda7e92c0aca433251";
+const apiKey ="&appid=379977dd9efc9c834bc08b24149ae8c1";
 
-var userInputs = document.querySelector(".city").value;
 
 //selection of weather box items
 
@@ -21,23 +20,6 @@ weather.temperature = {
     unit: "celcius"
 }
 
-/* //user browser and/or denies
-if ('geolocation' in navigator){
-    navigator.geolocation.getCurrentPosition(setPosition, errorFunction);
-}else{
-    boxNoti.style.display ="block";
-    boxNoti.innerHTML = "<p> Browser doesn't use geolocation</p>";
-} */
-
-//position 
-
-function setPosition(position){
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-
-    getWeather(lat, lon);
-}
-
 //errors?
 
 function errorFunction(error){
@@ -47,13 +29,23 @@ function errorFunction(error){
 
 //use api for weather object
 
-function getWeather(lat, lon) {
-    let api ='http://api.openweathermap.org/data/2.5/weather?q=`${city}`&appid=379977dd9efc9c834bc08b24149ae8c1';
+function getWeather(city) {
+    let api ="http://api.openweathermap.org/data/2.5/weather?q=";
+    var city = select(".city")
+
+    var button = select(".submit");
+    button.mousePressed(cityCheck);
+
+    cityCheck = () => {
+        var completeURL = api + city.value() + apiKey; 
+    }
+
   console.log(api);
   fetch(api)
     .then(function(response){
         let recieving = response.json();
         return recieving; 
+        console.log(recieving);
     })
     .then (function(recieving){
         weather.temperature.value = Math.floor(recieving.main.temp - kelvinTemp); 
